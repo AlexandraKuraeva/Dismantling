@@ -1,0 +1,141 @@
+//====================.SLIDER start==============================
+.slider {
+	&__inner {
+		max-width: 1100px;
+		margin: 20px auto;
+	}
+
+	&__comments {
+		&h3{
+			font-size: 32px;
+		}
+
+	}
+}
+@media (max-width: 990px) {
+	.slider {
+		&__inner {
+			max-width: 840px;
+			margin: 10px auto;
+		}
+	}
+}
+//====================.SLIDER end==============================
+//====================.slick start==============================
+
+.slick-prev:before,
+.slick-next:before {
+	color: #660606;
+	font-family: monospace;
+	content: "<";
+	font-size: 32px;
+}
+.slick-next:before {
+	content: ">";
+}
+.slick-prev:hover:before,
+.slick-next:hover:before {
+	color: #e96767;
+	font-size: 36px;
+	transform: rotate(180);
+}
+
+.slick-prev,
+.slick-next {
+	z-index: 1;
+}
+
+.slick-prev {
+	left: 10px;
+}
+
+.slick-next {
+	right: 10px;
+}
+
+.slick-list {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.slick-dots li button:before {
+	color: #e96767;
+}
+
+.slick-dots li.slick-active button:before {
+	color: #690e0e;
+}
+@media screen and (max-width: 990px) {
+	.slick-arrow {
+		display: none !important;
+	}
+}
+//====================.slick end==============================
+//=====================.comment start==========================
+.comment {
+	width: 100% !important;
+	display: flex;
+	align-items: center;
+	
+
+	&__inner {
+		margin-right: 20px;
+		padding: 30px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: #b5464627;
+		border: 3px solid #3f111100;
+		border-radius: 30px;
+
+		& p {
+			font-size: 26px;
+			line-height: 110%;
+			padding: 15px;
+			text-align: center;
+		}
+	}
+	&__wrap-img-title {
+		display: flex;
+		align-items: center;
+
+		& h3 {
+			font-size: 22px;
+			margin-left: 20px;
+		}
+	}
+	&__img {
+		& img {
+			border-radius: 100%;
+			width: 90px;
+			height: 90px;
+			object-fit: cover;
+		}
+	}
+
+	@media screen and (max-width: 990px) {
+		.comment {
+			
+			&__inner {
+				
+
+				& p {
+					font-size: 14px;
+					
+					padding: 10px;
+					
+				}
+			}
+			&__wrap-img-title {
+				
+
+				& h3 {
+					font-size: 18px;
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+}
+
+//=====================.comment end==========================

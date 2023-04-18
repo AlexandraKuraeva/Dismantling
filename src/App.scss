@@ -1,0 +1,55 @@
+
+
+
+
+body {
+	height: 100%;
+	font-family: "Arial";
+	font-size: 14px;
+	background-color: #ffffff;
+}
+
+a {
+	
+	font-size: 14px;
+}
+.container {
+	max-width: 1370px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+/* ==================btn start================== */
+.btn{
+	border: 1px solid #781414;
+	border-radius: 30px;
+	background-color: #fff;
+	font-size: 20px;
+	padding: 20px;
+	
+	cursor: pointer;
+	transition: all 0.3s;
+	&:hover{
+		color: #fff;
+		background-color: #781414;
+		
+	}
+
+	@media screen and (max-width: 990px){
+		padding: 16px;
+		font-size: 16px;
+		
+	}
+}
+/* ==================btn end================== */
