@@ -29,6 +29,16 @@
 		margin: 0px 8px 20px;
 	}
 }
+
+.input__box{
+	position: relative;
+	& span{
+		position: absolute;
+		bottom: 5px;
+		left: 10px;
+		color: #a90d0d;
+	}
+}
 @media screen and (max-width: 1080px) {
 	.form {
 		&__right{

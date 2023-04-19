@@ -54,6 +54,7 @@ function App() {
   };
   //введенные пользователем данные записываются  в state
   const handleInputChange = (event) => {
+	setFormErrors({});
     const { name, value } = event.target;
     setFormValues({ ...formValues, [name]: value });
   };

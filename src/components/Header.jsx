@@ -12,11 +12,11 @@ const Header = ({ setActive }) => {
       document.body.classList.remove('noscroll');
     }
 
-    
     return () => {
       document.body.classList.remove('noscroll');
     };
   }, [isOpen]);
+
   return (
     <header className="header">
       <img className="header__decor" src={decor} alt="" />

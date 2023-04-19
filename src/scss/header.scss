@@ -63,7 +63,7 @@
 .menu {
 	display: flex;
 	align-items: center;
-	// .menu__item
+	
 
 	&__item a {
 		color: #781414;
@@ -90,24 +90,7 @@
 
 @media screen and (max-width: 990px) {
 	.header {
-		&__wrapper {
-		}
-
-		// .header__logo
-
-		&__logo img {
-		}
-
-		&__decor {
-		}
-
-		// .header__menu
-
-		&__menu {
-		}
-
-		&__btn {
-		}
+		
 		&__menu-toggle .toggler {
 			display: block;
 
@@ -125,7 +108,7 @@
 		padding: 20px;
 		flex-direction: column;
 		position: fixed;
-		top: 170px;
+		top: 160px;
 		bottom: 0;
 		left: -41.4375rem;
 		width: 100%;
@@ -139,11 +122,11 @@
 		overflow-y: auto;
 		overflow-x: hidden;
 		z-index: 5;
-		background-color: #fffefe;
+		background-color: #e9e5e5;
 
 		&.open {
 			left: 0;
-			box-shadow: 0 0 3.375rem rgb(0 0 0 / 42%);
+			box-shadow: 1px 41px 16px 16px #473737;
 		}
 
 		&__item {
