@@ -9,14 +9,6 @@ const Form = ({
   handleInputChange,
   formErrors,
 }) => {
-  const [modalActive, setModalActive] = useState(false); // добавляем состояние для отображения модального окна
-
-  const handleSubmitForm = (event) => {
-    console.log('dd');
-    handleSubmit(event); // вызываем функцию, которая отправляет данные формы
-    setModalActive(true); // устанавливаем состояние, которое показывает модальное окно
-  };
-
   return (
     <div className="form__wrapper">
       <div className="form__left">
@@ -37,8 +29,26 @@ const Form = ({
           />
           {formErrors.name && <span>{formErrors.name}</span>}
           {/* Если есть ошибка в поле name, то выводим ее */}
-          <input type="text" className="form__input input" placeholder="Телефон" />
-          <input type="text" className="form__input input" placeholder="e-mail" />
+          <input
+            type="text"
+            className="form__input input"
+            placeholder="Телефон"
+            name="phone"
+            value={formValues.phone}
+            onChange={handleInputChange}
+          />
+          {formErrors.phone && <span>{formErrors.phone}</span>}
+
+          <input
+            type="text"
+            className="form__input input"
+            placeholder="e-mail"
+            name="email"
+            value={formValues.email}
+            onChange={handleInputChange}
+          />
+          {formErrors.email && <span>{formErrors.email}</span>}
+          {/* Если есть ошибка в поле email, то выводим ее */}
         </div>
         <button type="submit" className="form__btn btn" onClick={(event) => handleSubmit(event)}>
           Получить консультацию

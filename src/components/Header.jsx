@@ -1,9 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../assets/img/logo.svg';
 import decor from '../assets/img/2.jpg';
 
 const Header = ({ setActive }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('noscroll');
+    } else {
+      document.body.classList.remove('noscroll');
+    }
+
+    
+    return () => {
+      document.body.classList.remove('noscroll');
+    };
+  }, [isOpen]);
   return (
     <header className="header">
       <img className="header__decor" src={decor} alt="" />

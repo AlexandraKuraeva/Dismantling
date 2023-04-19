@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.scss';
 import Content from './components/Content';
 import SentForm from './components/SentForm';
@@ -15,7 +15,17 @@ function App() {
     email: '',
     phone: '',
   });
+  useEffect(() => {
+    if (modalActive || isSent) {
+      document.body.classList.add('noscroll');
+    } else {
+      document.body.classList.remove('noscroll');
+    }
 
+    return () => {
+      document.body.classList.remove('noscroll');
+    };
+  }, [isSent, modalActive]);
   function validateForm(values) {
     let errors = {};
 
@@ -33,30 +43,6 @@ function App() {
 
     return errors;
   }
-
-  //введенные пользователем данные записываются  в state
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    //проводится проверка полей на пустоту
-    const errors = validateForm(formValues);
-
-    //если ошибок нет, то...
-    if (Object.keys(errors).length === 0) {
-      setFormErrors({});
-      setModalActive(false);
-      setSubmitForm(true);
-      resetFormValues(); // очищаем форму после отправки
-    } else {
-      setFormErrors(errors);
-    }
-  };
-
   //Отчистка формы
   const resetFormValues = () => {
     console.log('очистить');
@@ -66,6 +52,30 @@ function App() {
       phone: '',
     });
   };
+  //введенные пользователем данные записываются  в state
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+
+  const handleSubmit = (event) => {
+    console.log('поверка формы');
+    event.preventDefault();
+
+    //проводится проверка полей на пустоту
+    const errors = validateForm(formValues);
+
+    //если ошибок нет, то...
+    if (Object.keys(errors).length === 0) {
+      setFormErrors({});
+      setModalActive(false); // скрыть модальную форму, если она отображается
+      setSubmitForm(true); //отобразить сообщение об отправке
+      resetFormValues(); //очистка формы
+    } else {
+      setFormErrors(errors);
+    }
+  };
+
   return (
     <div className="App">
       <Header setActive={setModalActive} />

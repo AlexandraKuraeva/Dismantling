@@ -1,6 +1,7 @@
 import React from 'react';
 
 const SentForm = ({ setSubmitForm, isSent }) => {
+
   return (
     <div className={isSent ? 'modal active' : 'modal'} onClick={() => setSubmitForm(false)}>
       <div
