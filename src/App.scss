@@ -36,16 +36,16 @@ main {
 .btn{
 	border: 1px solid #781414;
 	border-radius: 30px;
-	background-color: #fff;
+	background-color: #781414;
 	font-size: 20px;
 	padding: 20px;
-	
+	color: #fff;
 	cursor: pointer;
 	transition: all 0.3s;
 	&:hover{
-		color: #fff;
-		background-color: #781414;
-		
+		color: #781414;
+		background-color: #ffffff;
+		box-shadow: 0 0 6px 3px #781414;
 	}
 
 	@media screen and (max-width: 990px){
