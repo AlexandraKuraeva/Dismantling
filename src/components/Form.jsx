@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import SentForm from './SentForm';
 
-const Form = ({ setSubmitForm, isSent }) => {
+const Form = ({
+  setSubmitForm,
+  isSent,
+  handleSubmit,
+  formValues,
+  handleInputChange,
+  formErrors,
+}) => {
   const [modalActive, setModalActive] = useState(false); // добавляем состояние для отображения модального окна
 
-  const handleSubmitForm = () => {
+  const handleSubmitForm = (event) => {
     console.log('dd');
-    setSubmitForm(true); // вызываем функцию, которая отправляет данные формы
+    handleSubmit(event); // вызываем функцию, которая отправляет данные формы
     setModalActive(true); // устанавливаем состояние, которое показывает модальное окно
   };
 
@@ -20,22 +27,23 @@ const Form = ({ setSubmitForm, isSent }) => {
       </div>
       <div className="form__right">
         <div className="form__inputs">
-          <input type="text" className="form__input input" placeholder="Ваше имя" />
+          <input
+            type="text"
+            className="form__input input"
+            placeholder="Ваше имя"
+            name="name"
+            value={formValues.name}
+            onChange={handleInputChange}
+          />
+          {formErrors.name && <span>{formErrors.name}</span>}
+          {/* Если есть ошибка в поле name, то выводим ее */}
           <input type="text" className="form__input input" placeholder="Телефон" />
           <input type="text" className="form__input input" placeholder="e-mail" />
         </div>
-        <button
-          className="form__btn btn"
-          onClick={() => {
-            handleSubmitForm;
-          }}
-        >
+        <button type="submit" className="form__btn btn" onClick={(event) => handleSubmit(event)}>
           Получить консультацию
         </button>
       </div>
-      {isSent && ( // проверяем, отправлена ли форма
-        <SentForm active={modalActive} setActive={setModalActive} /> // показываем модальное окно
-      )}
     </div>
   );
 };

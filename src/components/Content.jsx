@@ -13,6 +13,7 @@ const Content = ({
   validateForm,
   formValues,
   handleInputChange,
+  formErrors 
 }) => {
   return (
     <main className="main">
@@ -47,10 +48,9 @@ const Content = ({
                 это время накопили огромный опыт в проведении разнообразных работ по сносу и
                 демонтажу. Наша компания оказывает услуги по демонтажу как крупных, так и мелких
                 зданий. Мы профессионально подходим к выполнению каждого проекта, вне зависимости от
-                его масштабов.{' '}
+                его масштабов.
               </p>
               <p>
-                {' '}
                 Наша цель – предоставить нашим клиентам качественные услуги по сносу и демонтажу,
                 выполненные в точных сроках. Мы гарантируем безупречное качество работ и
                 индивидуальный подход к каждому клиенту. Вы можете быть уверены, что работа будет
@@ -70,7 +70,14 @@ const Content = ({
       </section>
       <section className="form">
         <div className="container">
-          <Form setSubmitForm={setSubmitForm} isSent={isSent} handleSubmit={handleSubmit} />
+          <Form
+            setSubmitForm={setSubmitForm}
+            isSent={isSent}
+            handleSubmit={handleSubmit}
+            formValues={formValues}
+            handleInputChange={handleInputChange}
+            formErrors={formErrors}
+          />
         </div>
       </section>
       <section className="gallery">

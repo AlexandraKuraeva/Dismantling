@@ -1,11 +1,10 @@
 import React from 'react';
 
-const SentForm = ({setActive, active}) => {
-
+const SentForm = ({ setSubmitForm, isSent }) => {
   return (
-    <div className={active ? 'modal active' : 'modal'} onClick={() => setActive(false)}>
+    <div className={isSent ? 'modal active' : 'modal'} onClick={() => setSubmitForm(false)}>
       <div
-        className={active ? 'modal__content active' : 'modal__content'}
+        className={isSent ? 'modal__content active' : 'modal__content'}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal__inner">

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import SentForm from './SentForm';
 
 const Modal = ({
@@ -12,7 +12,7 @@ const Modal = ({
   formErrors,
   handleSubmit,
 }) => {
-  return !isSent ? (
+  return (
     <div className={active ? 'modal active' : 'modal'} onClick={() => setActive(false)}>
       <div
         className={active ? 'modal__content active' : 'modal__content'}
@@ -57,8 +57,6 @@ const Modal = ({
         </div>
       </div>
     </div>
-  ) : (
-    <SentForm setActive={setActive} active={active} isSent={isSent} />
   );
 };
 
