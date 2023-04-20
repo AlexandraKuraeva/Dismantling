@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import logo from '../assets/img/logo.svg';
-import decor from '../assets/img/2.jpg';
+// import decor from '../assets/img/2.jpg';
 
 const Header = ({ setActive }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,9 +17,14 @@ const Header = ({ setActive }) => {
     };
   }, [isOpen]);
 
+  const openModal = ()=>{
+	setActive(true);
+	 setIsOpen(false);
+  }
+
   return (
     <header className="header">
-      <img className="header__decor" src={decor} alt="" />
+      {/* <img className="header__decor" src={decor} alt="" /> */}
       <div className="container">
         <div className="header__wrapper">
           <a className="header__logo logo" href="#">
@@ -42,7 +47,7 @@ const Header = ({ setActive }) => {
             </li>
           </ul>
 
-          <a className="header__btn btn " onClick={() => setActive(true)}>
+          <a className="header__btn btn " onClick={() => openModal()}>
             Получить консультацию
           </a>
           <button className="header__menu-toggle " type="button" onClick={() => setIsOpen(!isOpen)}>
